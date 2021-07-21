@@ -1,0 +1,165 @@
+
+# -*- coding: utf-8 -*-
+# --------------------------------------------------------------------------- #
+# FreeCAD related modules
+# For 0.16 stable
+import FreeCADGui 
+# For 0.17 daily developmental
+# sys.path.append('C:\Program Files\FreeCAD 0.19\lib')
+FreeCADGui.showMainWindow()
+import Part
+import Sketcher
+import FreeCAD
+import Mesh
+import Part
+# Macro Begin: C:\corazon_estenosis_valvula_aortica.FCMacro +++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+# Gui.runCommand('Std_DlgMacroRecord',0)
+# with open('C:/Program Files/FreeCAD 0.19/data/Mod/Start/StartPage/LoadNew.py') as file:
+# 	exec(file.read())
+# App.setActiveDocument("Unnamed")
+# App.ActiveDocument=App.getDocument("Unnamed")
+# Gui.ActiveDocument=Gui.getDocument("Unnamed")
+### Begin command Std_Import
+Mesh.insert(u"C:/xampp/htdocs/atlas/basededatos/AD y VCS-VCI.stl","Unnamed")
+Mesh.insert(u"C:/xampp/htdocs/atlas/basededatos/SEPTO IV NORMAL.stl","Unnamed")
+Mesh.insert(u"C:/xampp/htdocs/atlas/basededatos/ai y venas pulmonares.stl","Unnamed")
+Mesh.insert(u"C:/xampp/htdocs/atlas/basededatos/estenosis_valvula_aortica.stl","Unnamed")
+Mesh.insert(u"C:/xampp/htdocs/atlas/basededatos/vd (1).stl","Unnamed")
+Mesh.insert(u"C:/xampp/htdocs/atlas/basededatos/vi (1).stl","Unnamed")
+### End command Std_Import
+# Gui.Selection.clearSelection()
+# Gui.Selection.addSelection('Unnamed','AD_y_VCS_VCI','',-7.45511,-121.431,-459.227)
+### Begin command Std_Workbench
+# Gui.activateWorkbench("PartWorkbench")
+### End command Std_Workbench
+### Begin command Part_ShapeFromMesh
+FreeCAD.getDocument("Unnamed").addObject("Part::Feature","AD_y_VCS_VCI001")
+__shape__=Part.Shape()
+__shape__.makeShapeFromMesh(FreeCAD.getDocument("Unnamed").getObject("AD_y_VCS_VCI").Mesh.Topology,0.100000)
+FreeCAD.getDocument("Unnamed").getObject("AD_y_VCS_VCI001").Shape=__shape__
+FreeCAD.getDocument("Unnamed").getObject("AD_y_VCS_VCI001").purgeTouched()
+del __shape__
+### End command Part_ShapeFromMesh
+# Gui.Selection.clearSelection()
+# Gui.Selection.addSelection('Unnamed','SEPTO_IV_NORMAL')
+### Begin command Part_ShapeFromMesh
+FreeCAD.getDocument("Unnamed").addObject("Part::Feature","SEPTO_IV_NORMAL001")
+__shape__=Part.Shape()
+__shape__.makeShapeFromMesh(FreeCAD.getDocument("Unnamed").getObject("SEPTO_IV_NORMAL").Mesh.Topology,0.100000)
+FreeCAD.getDocument("Unnamed").getObject("SEPTO_IV_NORMAL001").Shape=__shape__
+FreeCAD.getDocument("Unnamed").getObject("SEPTO_IV_NORMAL001").purgeTouched()
+del __shape__
+### End command Part_ShapeFromMesh
+# Gui.Selection.clearSelection()
+# Gui.Selection.addSelection('Unnamed','ai_y_venas_pulmonares')
+### Begin command Part_ShapeFromMesh
+FreeCAD.getDocument("Unnamed").addObject("Part::Feature","ai_y_venas_pulmonares001")
+__shape__=Part.Shape()
+__shape__.makeShapeFromMesh(FreeCAD.getDocument("Unnamed").getObject("ai_y_venas_pulmonares").Mesh.Topology,0.100000)
+FreeCAD.getDocument("Unnamed").getObject("ai_y_venas_pulmonares001").Shape=__shape__
+FreeCAD.getDocument("Unnamed").getObject("ai_y_venas_pulmonares001").purgeTouched()
+del __shape__
+### End command Part_ShapeFromMesh
+# Gui.Selection.clearSelection()
+# Gui.Selection.addSelection('Unnamed','estenosis_valvula_aortica')
+### Begin command Part_ShapeFromMesh
+FreeCAD.getDocument("Unnamed").addObject("Part::Feature","estenosis_valvula_aortica001")
+__shape__=Part.Shape()
+__shape__.makeShapeFromMesh(FreeCAD.getDocument("Unnamed").getObject("estenosis_valvula_aortica").Mesh.Topology,0.100000)
+FreeCAD.getDocument("Unnamed").getObject("estenosis_valvula_aortica001").Shape=__shape__
+FreeCAD.getDocument("Unnamed").getObject("estenosis_valvula_aortica001").purgeTouched()
+del __shape__
+### End command Part_ShapeFromMesh
+# Gui.Selection.clearSelection()
+# Gui.Selection.addSelection('Unnamed','vd__1_')
+### Begin command Part_ShapeFromMesh
+FreeCAD.getDocument("Unnamed").addObject("Part::Feature","vd__1_001")
+__shape__=Part.Shape()
+__shape__.makeShapeFromMesh(FreeCAD.getDocument("Unnamed").getObject("vd__1_").Mesh.Topology,0.100000)
+FreeCAD.getDocument("Unnamed").getObject("vd__1_001").Shape=__shape__
+FreeCAD.getDocument("Unnamed").getObject("vd__1_001").purgeTouched()
+del __shape__
+### End command Part_ShapeFromMesh
+# Gui.Selection.clearSelection()
+# Gui.Selection.addSelection('Unnamed','vi__1_')
+### Begin command Part_ShapeFromMesh
+FreeCAD.getDocument("Unnamed").addObject("Part::Feature","vi__1_001")
+__shape__=Part.Shape()
+__shape__.makeShapeFromMesh(FreeCAD.getDocument("Unnamed").getObject("vi__1_").Mesh.Topology,0.100000)
+FreeCAD.getDocument("Unnamed").getObject("vi__1_001").Shape=__shape__
+FreeCAD.getDocument("Unnamed").getObject("vi__1_001").purgeTouched()
+del __shape__
+### End command Part_ShapeFromMesh
+# Gui.Selection.clearSelection()
+# Gui.Selection.addSelection('Unnamed','AD_y_VCS_VCI001')
+# Gui.Selection.addSelection('Unnamed','SEPTO_IV_NORMAL001')
+### Begin command Part_Fuse
+App.activeDocument().addObject("Part::MultiFuse","Fusion")
+App.activeDocument().Fusion.Shapes = [App.activeDocument().AD_y_VCS_VCI001,App.activeDocument().SEPTO_IV_NORMAL001,]
+# Gui.activeDocument().AD_y_VCS_VCI001.Visibility=False
+# Gui.activeDocument().SEPTO_IV_NORMAL001.Visibility=False
+# App.getDocument('Unnamed').getObject('Fusion').ViewObject.ShapeColor=getattr(App.getDocument('Unnamed').getObject('AD_y_VCS_VCI001').getLinkedObject(True).ViewObject,'ShapeColor',App.getDocument('Unnamed').getObject('Fusion').ViewObject.ShapeColor)
+# App.getDocument('Unnamed').getObject('Fusion').ViewObject.DisplayMode=getattr(App.getDocument('Unnamed').getObject('AD_y_VCS_VCI001').getLinkedObject(True).ViewObject,'DisplayMode',App.getDocument('Unnamed').getObject('Fusion').ViewObject.DisplayMode)
+App.ActiveDocument.recompute()
+### End command Part_Fuse
+# Gui.Selection.clearSelection()
+# Gui.Selection.addSelection('Unnamed','Fusion')
+# Gui.Selection.addSelection('Unnamed','ai_y_venas_pulmonares001')
+### Begin command Part_Fuse
+App.activeDocument().addObject("Part::MultiFuse","Fusion001")
+App.activeDocument().Fusion001.Shapes = [App.activeDocument().Fusion,App.activeDocument().ai_y_venas_pulmonares001,]
+# Gui.activeDocument().Fusion.Visibility=False
+# Gui.activeDocument().ai_y_venas_pulmonares001.Visibility=False
+# App.getDocument('Unnamed').getObject('Fusion001').ViewObject.ShapeColor=getattr(App.getDocument('Unnamed').getObject('Fusion').getLinkedObject(True).ViewObject,'ShapeColor',App.getDocument('Unnamed').getObject('Fusion001').ViewObject.ShapeColor)
+# App.getDocument('Unnamed').getObject('Fusion001').ViewObject.DisplayMode=getattr(App.getDocument('Unnamed').getObject('Fusion').getLinkedObject(True).ViewObject,'DisplayMode',App.getDocument('Unnamed').getObject('Fusion001').ViewObject.DisplayMode)
+App.ActiveDocument.recompute()
+### End command Part_Fuse
+# Gui.Selection.clearSelection()
+# Gui.Selection.addSelection('Unnamed','estenosis_valvula_aortica001')
+# Gui.Selection.addSelection('Unnamed','Fusion001')
+### Begin command Part_Fuse
+App.activeDocument().addObject("Part::MultiFuse","Fusion002")
+App.activeDocument().Fusion002.Shapes = [App.activeDocument().estenosis_valvula_aortica001,App.activeDocument().Fusion001,]
+# Gui.activeDocument().estenosis_valvula_aortica001.Visibility=False
+# Gui.activeDocument().Fusion001.Visibility=False
+# App.getDocument('Unnamed').getObject('Fusion002').ViewObject.ShapeColor=getattr(App.getDocument('Unnamed').getObject('estenosis_valvula_aortica001').getLinkedObject(True).ViewObject,'ShapeColor',App.getDocument('Unnamed').getObject('Fusion002').ViewObject.ShapeColor)
+# App.getDocument('Unnamed').getObject('Fusion002').ViewObject.DisplayMode=getattr(App.getDocument('Unnamed').getObject('estenosis_valvula_aortica001').getLinkedObject(True).ViewObject,'DisplayMode',App.getDocument('Unnamed').getObject('Fusion002').ViewObject.DisplayMode)
+App.ActiveDocument.recompute()
+### End command Part_Fuse
+# Gui.Selection.clearSelection()
+# Gui.Selection.addSelection('Unnamed','Fusion002')
+# Gui.Selection.addSelection('Unnamed','vi__1_001')
+### Begin command Part_Fuse
+App.activeDocument().addObject("Part::MultiFuse","Fusion003")
+App.activeDocument().Fusion003.Shapes = [App.activeDocument().Fusion002,App.activeDocument().vi__1_001,]
+# Gui.activeDocument().Fusion002.Visibility=False
+# Gui.activeDocument().vi__1_001.Visibility=False
+# App.getDocument('Unnamed').getObject('Fusion003').ViewObject.ShapeColor=getattr(App.getDocument('Unnamed').getObject('Fusion002').getLinkedObject(True).ViewObject,'ShapeColor',App.getDocument('Unnamed').getObject('Fusion003').ViewObject.ShapeColor)
+# App.getDocument('Unnamed').getObject('Fusion003').ViewObject.DisplayMode=getattr(App.getDocument('Unnamed').getObject('Fusion002').getLinkedObject(True).ViewObject,'DisplayMode',App.getDocument('Unnamed').getObject('Fusion003').ViewObject.DisplayMode)
+App.ActiveDocument.recompute()
+### End command Part_Fuse
+# Gui.Selection.clearSelection()
+# Gui.Selection.addSelection('Unnamed','vd__1_001')
+# Gui.Selection.addSelection('Unnamed','Fusion003')
+### Begin command Part_Fuse
+App.activeDocument().addObject("Part::MultiFuse","Fusion004")
+App.activeDocument().Fusion004.Shapes = [App.activeDocument().vd__1_001,App.activeDocument().Fusion003,]
+# Gui.activeDocument().vd__1_001.Visibility=False
+# Gui.activeDocument().Fusion003.Visibility=False
+# App.getDocument('Unnamed').getObject('Fusion004').ViewObject.ShapeColor=getattr(App.getDocument('Unnamed').getObject('vd__1_001').getLinkedObject(True).ViewObject,'ShapeColor',App.getDocument('Unnamed').getObject('Fusion004').ViewObject.ShapeColor)
+# App.getDocument('Unnamed').getObject('Fusion004').ViewObject.DisplayMode=getattr(App.getDocument('Unnamed').getObject('vd__1_001').getLinkedObject(True).ViewObject,'DisplayMode',App.getDocument('Unnamed').getObject('Fusion004').ViewObject.DisplayMode)
+App.ActiveDocument.recompute()
+### End command Part_Fuse
+# Gui.Selection.clearSelection()
+# Gui.runCommand('Std_Export',0)
+# Gui.Selection.addSelection('Unnamed','Fusion004')
+### Begin command Std_Export
+__objs__=[]
+__objs__.append(FreeCAD.getDocument("Unnamed").getObject("Fusion004"))
+Mesh.export(__objs__,u"D:/corazon_estenosis_valvula_aortica.stl")
+
+del __objs__
+### End command Std_Export
+# Macro End: C:\xampp\htdocs\atlas\basededatos\corazon_estenosis_valvula_aortica.FCMacro +++++++++++++++++++++++++++++++++++++++++++++++++

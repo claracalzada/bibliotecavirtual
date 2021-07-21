@@ -1,0 +1,25 @@
+
+
+body{
+	color:"#6495ed";
+	background: linear-gradient(#feffff 0%,#ddf1f9 20%,#a0d8ef 100%);
+    background-color: #a0d8ef;
+    background-repeat: no-repeat;
+}
+.button{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 400;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #1883ba;
+    border-radius: 6px;
+    border: 2px solid #0016b0;
+  }
+  .button:hover{
+    color: #1883ba;
+    background-color: #ffffff;
+  }
+  h1{
+  	text-decoration: underline black; 
+  }
